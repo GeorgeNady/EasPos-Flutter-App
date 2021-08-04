@@ -17,12 +17,12 @@ class NamedNavigatorImpl implements NamedNavigator {
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.SPLASH_ROUTER:return MaterialPageRoute(builder: (_) => SplashScreen(navigator: navigatorState,));
-      case Routes.LOGIN_ROUTE:return MaterialPageRoute(builder: (_) => LoginScreen(navigator: navigatorState,));
-      case Routes.REGISTER_ROUTE:return MaterialPageRoute(builder: (_) => RegisterScreen(navigator: navigatorState,));
-      case Routes.FORGET_PASS_ROUTE:return MaterialPageRoute(builder: (_) => ForgetPasswordScreen(navigator: navigatorState,));
-      case Routes.HOME_ROUTE:return MaterialPageRoute(builder: (_) => HomeScreen(navigator: navigatorState,));
-      default : MaterialPageRoute(builder: (_) => SplashScreen(navigator: navigatorState,));
+      case Routes.SPLASH_ROUTER: return MaterialPageRoute(builder: (_) => SplashScreen(navigator: navigatorState,));
+      case Routes.LOGIN_ROUTE: return MaterialPageRoute(builder: (_) => LoginScreen(navigator: navigatorState,));
+      case Routes.REGISTER_ROUTE: return MaterialPageRoute(builder: (_) => RegisterScreen(navigator: navigatorState,));
+      case Routes.FORGET_PASS_ROUTE: return MaterialPageRoute(builder: (_) => ForgetPasswordScreen(navigator: navigatorState,));
+      case Routes.HOME_ROUTE: return MaterialPageRoute(builder: (_) => HomeScreen(navigator: navigatorState,));
+      default : return MaterialPageRoute(builder: (_) => SplashScreen(navigator: navigatorState,));
     }
   }
 
