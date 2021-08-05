@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "330612661659",
+    "firebase_url": "https://easpos-236cc-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "easpos-236cc",
+    "storage_bucket": "easpos-236cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330612661659:android:f6226aa55d6dc50642d53e",
+        "android_client_info": {
+          "package_name": "com.george.easposresturants.easpos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330612661659-o3n18ijv8m9qbvdh79aadlofbsie1118.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeP9JXvZvB5-kTr4tYleXTBDKBpq3lvjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330612661659-o3n18ijv8m9qbvdh79aadlofbsie1118.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
