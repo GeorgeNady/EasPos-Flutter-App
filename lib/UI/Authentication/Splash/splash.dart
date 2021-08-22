@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:easpos/Components/AnimatedWidget.dart';
 import 'package:easpos/Utiles/Navigator/named-navigator_impl.dart';
 import 'package:easpos/Utiles/Navigator/routes.dart';
+import 'package:easpos/Utiles/colors.dart';
 import 'package:easpos/Utiles/shared_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), (){
-      preference.readString(CachingKey.USER_TYPE).then((value)  {
+      preference.readString(CachingKey.AUTH_TOKEN).then((value)  {
         if (value == 'مستخدم') {
           NamedNavigatorImpl().push(Routes.HOME_ROUTE , clean: true);
         } else {
@@ -35,7 +36,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: MyColors.white,
       body: Container(
         margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * .3),
         child: Row(
@@ -43,10 +44,10 @@ class SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             AnimatedWidgets(
               widget: Image.asset(
-                'assets/images/logo.png',
+                'assets/images/the_chef_logo.png',
                 width: 250,
                 height: 250,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
               horizontalOffset: 5,
               duration: 3,

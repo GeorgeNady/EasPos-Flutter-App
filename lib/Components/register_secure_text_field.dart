@@ -1,3 +1,4 @@
+import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class RegisterSecureTextField extends StatefulWidget {
@@ -38,16 +39,16 @@ class _RegisterSecureTextFieldState extends State<RegisterSecureTextField> {
           filled: true,
           disabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide:
                   BorderSide(color: Colors.black38)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(color: Colors.black38)),
           border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(color: Colors.black38)),
-          fillColor: Colors.grey[300],
+          fillColor: MyColors.white,
           prefixIcon: widget.icon != null
               ? Padding(
             padding: const EdgeInsets.all(6),

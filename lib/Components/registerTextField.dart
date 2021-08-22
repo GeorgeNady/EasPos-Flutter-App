@@ -1,3 +1,4 @@
+import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
 
 class RegisterTextField extends StatefulWidget {
@@ -44,15 +45,15 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
           filled: true,
           disabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(color: Colors.black38)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(color: Colors.black38)),
           border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(50)),
+              borderRadius: const BorderRadius.all(Radius.circular(5)),
               borderSide: BorderSide(color: Colors.black38)),
-          fillColor: Colors.grey[300],
+          fillColor: MyColors.white,
           hintStyle: const TextStyle(
               color: Colors.grey,
               fontSize: 14.0,

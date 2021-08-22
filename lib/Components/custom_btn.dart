@@ -29,6 +29,8 @@ class CustomBtn extends StatefulWidget {
 class _CustomBtnState extends State<CustomBtn> {
   @override
   Widget build(BuildContext context) {
+    const borderRadius = 10.0;
+
     if (widget.loading) {
       return Center(
         child: SpinKitCircle(
@@ -42,10 +44,6 @@ class _CustomBtnState extends State<CustomBtn> {
         child: Container(
           height: 60,
           width: widget.btnWidth ?? MediaQuery.of(context).size.width*.5,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.white , width: 1 ),
-            borderRadius: BorderRadius.circular(30.0)
-          ),
           child: MaterialButton(
             height: 50,
             onPressed: (){
@@ -54,7 +52,7 @@ class _CustomBtnState extends State<CustomBtn> {
             },
             color: widget.color ?? Theme.of(context).accentColor,
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -13,4 +13,7 @@ abstract class MyColors{
   static Color success = Color(0xFF5cb85c);
   static Color warning = Color(0xFFf0ad4e);
   static Color danger = Color(0xFFd9534f);
+
+  static Color red = Color(0xffff1c15);
+
 }
