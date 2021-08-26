@@ -33,7 +33,7 @@ class NamedNavigatorImpl implements NamedNavigator {
   }
 
   @override
-  Future push(String routeName,
+  Future navigate(String routeName,
       {arguments, bool replace = false, bool clean = false}) {
     if (clean)
       return navigatorState.currentState.pushNamedAndRemoveUntil(

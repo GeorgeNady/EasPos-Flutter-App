@@ -56,7 +56,7 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
 
           print('++++++++++++++++++++++ ${element.get('usertype')}');
 
-          NamedNavigatorImpl().push(Routes.HOME_ROUTE,replace: true,clean: true);
+          NamedNavigatorImpl().navigate(Routes.HOME_ROUTE,replace: true,clean: true);
 
         });
 

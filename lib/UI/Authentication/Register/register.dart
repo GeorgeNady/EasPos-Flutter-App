@@ -17,6 +17,7 @@ class RegisterScreen extends StatefulWidget {
   final navigator;
 
   const RegisterScreen({Key key, this.navigator}) : super(key: key);
+
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -26,7 +27,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool _confirmSee = true;
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
 
-
   @override
   void initState() {
     super.initState();
@@ -35,223 +35,147 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.backgroundColor2,
+      backgroundColor: MyColors.white,
       body: BlocBuilder<RegisterBloc, AppState>(
         builder: (_, state) => Form(
           key: _globalKey,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: ListAnimator(
-                data: <Widget>[
-                  SizedBox(height: 20),
-                  CustomLogoTextIntro(
-                      mainText: "هيا بنا نبدأ", subText: "إنشاء حساب"),
+          child: Container(
+            child: ListAnimator(
+              data: <Widget>[
+                SizedBox(height: 20),
+                Image.asset('assets/images/the_chef_logo.png', height: 250),
+                SizedBox(height: 35),
 
-                  //////////////////////////////////////////////////////////////
-                  //////////////////////////////////////////////////// FULL NAME
-                  //////////////////////////////////////////////////////////////
-                  RegisterTextField(
-                    icon: Icons.person,
-                    onChange: context.read<RegisterBloc>().updateName,
-                    hint: "الاسم بالكامل",
-                    type: TextInputType.text,
-                    validate: (String v) {
-                      if (v.length < 2) {
-                        return "الرجاء إدخال اسم مستخدم صالح";
+                //////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////// FULL NAME
+                //////////////////////////////////////////////////////////////
+                RegisterTextField(
+                  icon: Icons.person,
+                  onChange: context.read<RegisterBloc>().updateName,
+                  hint: "Full name",
+                  type: TextInputType.text,
+                  validate: (String v) {
+                    if (v.length < 2) {
+                      return "please enter a valid name";
+                    }
+                  },
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////// EMAIL
+                //////////////////////////////////////////////////////////////
+                RegisterTextField(
+                  icon: Icons.email,
+                  onChange: context.read<RegisterBloc>().updateEmail,
+                  hint: "Email",
+                  type: TextInputType.emailAddress,
+                  validate: (String v) {
+                    if (v.length < 10 || !v.contains("@")) {
+                      return "please enter a valid email";
+                    }
+                  },
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
+                //////////////////////////////////////////////////////// PHONE
+                //////////////////////////////////////////////////////////////
+                RegisterTextField(
+                  icon: Icons.phone,
+                  onChange: context.read<RegisterBloc>().updatePhone,
+                  hint: "Phone",
+                  type: TextInputType.phone,
+                  validate: (String v) {
+                    if (v.length < 11 || v[0] != "0") {
+                      return "please enter a valid phone number";
+                    }
+                  },
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////// PASS
+                //////////////////////////////////////////////////////////////
+                RegisterSecureTextField(
+                  withIcon: true,
+                  icon: Icons.lock_sharp,
+                  hint: "Password",
+                  onPressed: () {
+                    setState(() {
+                      _see = !_see;
+                    });
+                  },
+                  validate: (String v) {
+                    if (v.length < 6) {
+                      return "please enter a valid password";
+                    }
+                  },
+                  onChange: context.read<RegisterBloc>().updatePassword,
+                  obscureText: _see,
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////// RE_PASS
+                //////////////////////////////////////////////////////////////
+                RegisterSecureTextField(
+                  withIcon: true,
+                  icon: Icons.lock_sharp,
+                  hint: "Password Confirmation",
+                  onPressed: () {
+                    setState(() {
+                      _confirmSee = !_confirmSee;
+                    });
+                  },
+                  validate: (String v) {
+                    if (v.length < 6) {
+                      return "please enter a valid password";
+                    } else if (!v.contains(
+                        context.read<RegisterBloc>().password.value)) {
+                      return "Incorrect password";
+                    }
+                  },
+                  onChange:
+                      context.read<RegisterBloc>().updateConfirmedPassword,
+                  obscureText: _confirmSee,
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////// SUBMIT
+                //////////////////////////////////////////////////////////////
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: CustomBtn(
+                    loading: state is Loading ? true : false,
+                    text: "Register",
+                    onTap: () {
+                      if (_globalKey.currentState.validate()) {
+                        context.read<RegisterBloc>().add(Click());
+                      } else {
+                        print("error yasta ");
+                        return;
+
                       }
                     },
+                    txtColor: Colors.white,
+                    color: MyColors.red,
                   ),
-                  SizedBox(height: 20),
+                ),
+                SizedBox(height: 40),
 
-                  //////////////////////////////////////////////////////////////
-                  //////////////////////////////////////////////////////// EMAIL
-                  //////////////////////////////////////////////////////////////
-                  RegisterTextField(
-                    icon: Icons.email,
-                    onChange: context.read<RegisterBloc>().updateEmail,
-                    hint: "بريد إلكتروني",
-                    type: TextInputType.emailAddress,
-                    validate: (String v) {
-                      if (v.length < 10 || !v.contains("@")) {
-                        return "الرجاء إدخال بريد إلكتروني صحيح";
-                      }
-                    },
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  //////////////////////////////////////////////////// USER TYPE
-                  //////////////////////////////////////////////////////////////
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: MyColors.accentColor,
-                        borderRadius: BorderRadius.circular(50)),
-                    height: 50,
-                    margin: EdgeInsets.symmetric(horizontal: 30),
-                    child: InkWell(
-                      onTap: () {
-                        FocusScope.of(context).requestFocus(FocusNode());
-                        /*customShowModelBottomSheet(
-                            context: context,
-                            list: data,
-                            onTap: (i) {
-                              print("||||||||||||| ${data[i].name}");
-                              context
-                                  .read<RegisterBloc>()
-                                  .updateUserType(data[i].name);
-                            });*/
-                      },
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Icon(
-                                Icons.supervisor_account_rounded,
-                                color: Colors.white,
-                                size: 18,
-                              )),
-                          StreamBuilder<String>(
-                            stream: context.read<RegisterBloc>().userTypeStream,
-                            builder: (context, snapshot) {
-                              return Container(
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
-                                  snapshot.hasData ?
-                                       snapshot.data
-                                      : "اختر نوع المستخدم",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14.0,
-                                      decoration: TextDecoration.none,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: 'cairo'),
-                                ),
-                              );
-                            }
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  //////////////////////////////////////////////////////// PHONE
-                  //////////////////////////////////////////////////////////////
-                  RegisterTextField(
-                    icon: Icons.phone,
-                    onChange: context.read<RegisterBloc>().updatePhone,
-                    hint: "الهاتف",
-                    type: TextInputType.phone,
-                    validate: (String v) {
-                      if (v.length < 11 || v[0] != "0") {
-                        return "الرجاء إدخال رقم هاتف صحيح";
-                      }
-                    },
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  ////////////////////////////////////////////////////// ADDRESS
-                  //////////////////////////////////////////////////////////////
-                  RegisterTextField(
-                    icon: Icons.home,
-                    onChange: context.read<RegisterBloc>().updateAddress,
-                    hint: "عنوان",
-                    type: TextInputType.streetAddress,
-                    validate: (String v) {
-                      if (v.length == 0) {
-                        return "الرجاء إدخال عنوان صالح";
-                      }
-                    },
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  ///////////////////////////////////////////////////////// PASS
-                  //////////////////////////////////////////////////////////////
-                  RegisterSecureTextField(
-                    withIcon: true,
-                    icon: Icons.lock_sharp,
-                    hint: "كلمه السر",
-                    onPressed: () {
-                      setState(() {
-                        _see = !_see;
-                      });
-                    },
-                    validate: (String v) {
-                      if (v.length < 6) {
-                        return "الرجاء إدخال كلمة مرور صالحة";
-                      }
-                    },
-                    onChange: context.read<RegisterBloc>().updatePassword,
-                    obscureText: _see,
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  ////////////////////////////////////////////////////// RE_PASS
-                  //////////////////////////////////////////////////////////////
-                  RegisterSecureTextField(
-                    withIcon: true,
-                    icon: Icons.lock_sharp,
-                    hint: "تأكيد كلمة المرور",
-                    onPressed: () {
-                      setState(() {
-                        _confirmSee = !_confirmSee;
-                      });
-                    },
-                    validate: (String v) {
-                      if (v.length < 6) {
-                        return "الرجاء إدخال كلمة مرور تأكيد صحيحة";
-                      } else if (!v.contains(
-                          context.read<RegisterBloc>().password.value)) {
-                        return "يجب أن تتطابق مع كلمة المرور";
-                      }
-                    },
-                    onChange:
-                        context.read<RegisterBloc>().updateConfirmedPassword,
-                    obscureText: _confirmSee,
-                  ),
-                  SizedBox(height: 20),
-
-                  //////////////////////////////////////////////////////////////
-                  ///////////////////////////////////////////////////// RESUBMIT
-                  //////////////////////////////////////////////////////////////
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: CustomBtn(
-                      loading: state is Loading ? true : false,
-                      text: "إنشاء",
-                      onTap: () {
-                        if (_globalKey.currentState.validate()) {
-                          context.read<RegisterBloc>().add(Click());
-                        } else {
-                          return;
-                        }
-                      },
-                      txtColor: Colors.white,
-                    ),
-                  ),
-                  SizedBox(height: 40),
-
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text("هل لديك حساب؟"),
-                    FlatButton(
-                        onPressed: () => NavigatorTypes()
-                            .changeScreenRemoveUntil(context, LoginScreen()),
-                        child: Text("تسجيل الدخول",
-                            style: TextStyle(
-                                color: Theme.of(context).accentColor))),
-                  ]),
-                  SizedBox(height: 80),
-                ],
-              ),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text("Do you have an account?"),
+                  FlatButton(
+                      onPressed: () => NavigatorTypes()
+                          .changeScreenRemoveUntil(context, LoginScreen()),
+                      child: Text("Login",
+                          style:
+                              TextStyle(color: MyColors.red))),
+                ]),
+                SizedBox(height: 80),
+              ],
             ),
           ),
         ),

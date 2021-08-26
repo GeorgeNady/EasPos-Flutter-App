@@ -24,9 +24,9 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), (){
       preference.readString(CachingKey.AUTH_TOKEN).then((value)  {
         if (value == 'مستخدم') {
-          NamedNavigatorImpl().push(Routes.HOME_ROUTE , clean: true);
+          NamedNavigatorImpl().navigate(Routes.HOME_ROUTE , clean: true);
         } else {
-          NamedNavigatorImpl().push(Routes.LOGIN_ROUTE , clean: true);
+          NamedNavigatorImpl().navigate(Routes.LOGIN_ROUTE , clean: true);
         }
       });
     });

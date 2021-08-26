@@ -13,7 +13,7 @@ class SharedHelper {
 
   Future<bool> logout() async {
     sharedPreferences = await SharedPreferences.getInstance();
-    NamedNavigatorImpl().push(Routes.SPLASH_ROUTER , clean: true);
+    NamedNavigatorImpl().navigate(Routes.SPLASH_ROUTER , clean: true);
     return sharedPreferences.clear();
   }
 

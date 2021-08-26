@@ -1,5 +1,6 @@
 
 import 'package:easpos/UI/Authentication/LogIn/BLoC/login_bloc.dart';
+import 'package:easpos/UI/Authentication/Register/BLoC/register_bloc.dart';
 import 'package:easpos/UI/Authentication/Splash/BLoC/splash_bloc.dart';
 import 'package:easpos/Utiles/Navigator/named-navigator_impl.dart';
 import 'package:easpos/Utiles/Navigator/routes.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<LoginBloc>(
           create: (_) => LoginBloc(),
+        ),
+        BlocProvider<RegisterBloc>(
+          create: (_) => RegisterBloc(),
         ),
 
       ],
