@@ -1,46 +1,41 @@
-import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:easpos/Components/custom_app_bar.dart';
+import 'package:easpos/Components/side_menu.dart';
+import 'widgets/home.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   final navigator;
+  final breakPoint;
 
-  const HomeScreen({Key key, this.navigator}) : super(key: key);
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-
-
-  @override
-  void initState() {
-    super.initState();
-  }
+  const HomeScreen({Key key, this.navigator, this.breakPoint = 1000}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: MyColors.backgroundColor2,
-        appBar: AppBar(
-          title: Text(
-            "الصفحة الرئيسية",
-            style: TextStyle(
-              color: MyColors.white,
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < breakPoint)
+      return Scaffold(
+        appBar: CustomAppBar(),
+        drawer: Drawer(
+          child: SideMenu(),
+        ),
+        body: Home(),
+      );
+    else
+      return Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: SideMenu(),
+          ),
+          Expanded(
+            flex: 4,
+            child: Scaffold(
+              appBar: CustomAppBar(),
+              body: Home(),
             ),
           ),
-          actions: [
-          // CustomLogoutIcon()
-          ],
-          backgroundColor: MyColors.accentColor,
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-            onPressed: () {
-             // TODO
-            },
-            isExtended: true,
-            label: Text("طلباتى")
-        ),
-        body: Container()
-    );
+        ],
+      );
   }
+
 }
