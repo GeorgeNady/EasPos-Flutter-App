@@ -69,34 +69,16 @@ class CachingKey extends Enum<String> {
   static const CachingKey USER_NAME = const CachingKey('USER_NAME');
   static const CachingKey USER_EMAIL = const CachingKey('USER_EMAIL');
   static const CachingKey MOBILE_NUMBER = const CachingKey('MOBILE_NUMBER');
-  static const CachingKey USER_TYPE = const CachingKey('USER_TYPE');
+
+  static const CachingKey COMPANY_ID = const CachingKey('COMPANY_ID');
+  static const CachingKey COMPANY_NAME = const CachingKey('COMPANY_NAME');
+
+
   static const CachingKey ADDRESS = const CachingKey('ADDRESS');
-  static const CachingKey LAT = const CachingKey('LAT');
   static const CachingKey LONG = const CachingKey('LONG');
+  static const CachingKey LAT = const CachingKey('LAT');
 
 
-  // // never used
-  // static const CachingKey DEVICE_TOKEN = const CachingKey('DEVICE_TOKEN');
-  // static const CachingKey EMAIL = const CachingKey('EMAIL');
-  // static const CachingKey USER_IMAGE = const CachingKey('USER_IMAGE');
-  // static const CachingKey USER_BIRTH = const CachingKey('USER_BIRTH');
-  // static const CachingKey CITY = const CachingKey('CITY');
-  // static const CachingKey CONTACTS = const CachingKey('CONTACTS');
-  // static const CachingKey GOV = const CachingKey('GOV');
-  // static const CachingKey LEVEL = const CachingKey('LEVEL');
-  // static const CachingKey BIO = const CachingKey('BIO');
-  // static const CachingKey GENDER = const CachingKey('GENDER');
-  // static const CachingKey AVATAR = const CachingKey('AVATAR');
-  // static const CachingKey COVER = const CachingKey('COVER');
-  // static const CachingKey WALLET = const CachingKey('WALLET');
-  // static const CachingKey LEARN = const CachingKey('LEARN');
-  // static const CachingKey STAGE = const CachingKey('STAGE');
-  // static const CachingKey CLASS = const CachingKey('CLASS');
-  // static const CachingKey UNIVERSITY = const CachingKey('UNIVERSITY');
-  // static const CachingKey IS_LOGIN = const CachingKey('IS_LOGIN');
-  // static const CachingKey IS_FIRST = const CachingKey('IS_FIRST');
-  // static const CachingKey SOCIAL = const CachingKey('SOCIAL');
-  // static const CachingKey PAGE_TYPE = const CachingKey('PAGE_TYPE');
 }
 
 

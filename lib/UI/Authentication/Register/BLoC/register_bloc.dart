@@ -15,6 +15,7 @@ import '../../../../App/app_state.dart';
 class RegisterBloc extends Bloc<AppEvent, AppState> {
   final _name = BehaviorSubject<String>();
   final _email = BehaviorSubject<String>();
+  final _companyName = BehaviorSubject<String>();
   final _phone = BehaviorSubject<String>();
   final password = BehaviorSubject<String>();
   final _confirmed = BehaviorSubject<String>();
@@ -34,6 +35,8 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
 
   Function(String) get updateName => _name.sink.add;
 
+  Function(String) get updateCompanyName => _companyName.sink.add;
+
   Function(String) get updatePhone => _phone.sink.add;
 
   Function(String) get updatePassword => password.sink.add;
@@ -44,6 +47,7 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
   Future<void> close() {
     _name.close();
     _email.close();
+    _companyName.close();
     _phone.close();
     password.close();
     _confirmed.close();
@@ -66,24 +70,24 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
          * CREATE NEW USER ACCOUNT
          * Params : ( String email , String Pass )
          * */
-        await auth.createUserWithEmailAndPassword(
-            email: _email.value, password: password.value)
+        await auth
+            .createUserWithEmailAndPassword(
+                email: _email.value, password: password.value)
             .then((value) {
-              _uid = value.user.uid;
-              print('User Created Successfully');
-            });
-
+          _uid = value.user.uid;
+          print('User Created Successfully');
+        });
 
         /**
          * CREATE USER DATA
          * */
 
         var user = UserDataModel(
-          uid: _uid,
-          name: _name.valueOrNull,
-          email: _email.valueOrNull,
-          phone: _phone.valueOrNull
-        );
+            uid: _uid,
+            name: _name.valueOrNull,
+            email: _email.valueOrNull,
+            phone: _phone.valueOrNull,
+            companyName: _companyName.valueOrNull);
 
         /**
          * save the data to the shared prefs
@@ -92,6 +96,7 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
         _helper.writeData(CachingKey.USER_NAME, user.name);
         _helper.writeData(CachingKey.USER_EMAIL, user.email);
         _helper.writeData(CachingKey.MOBILE_NUMBER, user.phone);
+        _helper.writeData(CachingKey.COMPANY_NAME, user.companyName);
 
         /**
          * CREATE USER RECORD ON FIREBASE
@@ -99,11 +104,13 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
         await fireStore
             .collection(Constants.USERS_COLLECTION)
             .add(user.toJson())
-            .then((value) => Fluttertoast.showToast(msg: "User Added Successfully"))
-            .catchError((error) => Fluttertoast.showToast(msg: "Failed to add user: $error"));
+            .then((value) =>
+                Fluttertoast.showToast(msg: "User Added Successfully"))
+            .catchError((error) =>
+                Fluttertoast.showToast(msg: "Failed to add user: $error"));
 
-        NamedNavigatorImpl().navigate(Routes.HOME_ROUTE,replace: true,clean: true);
-
+        NamedNavigatorImpl()
+            .navigate(Routes.HOME_ROUTE, replace: true, clean: true);
 
         yield Done();
       } catch (e) {

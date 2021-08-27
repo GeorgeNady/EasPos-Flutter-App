@@ -51,7 +51,6 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
           _helper.writeData(CachingKey.USER_NAME, element.get('name'));
           _helper.writeData(CachingKey.USER_EMAIL, element.get('email'));
           _helper.writeData(CachingKey.MOBILE_NUMBER, element.get('phone'));
-          _helper.writeData(CachingKey.USER_TYPE, element.get('usertype'));
           _helper.writeData(CachingKey.ADDRESS, element.get('address'));
 
           print('++++++++++++++++++++++ ${element.get('usertype')}');

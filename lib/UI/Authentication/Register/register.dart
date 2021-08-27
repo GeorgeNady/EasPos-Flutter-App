@@ -79,6 +79,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: 20),
 
                 //////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////// ORGANIZATION
+                //////////////////////////////////////////////////////////////
+                RegisterTextField(
+                  icon: Icons.home_repair_service_rounded,
+                  onChange: context.read<RegisterBloc>().updateCompanyName,
+                  hint: "Restaurant Name",
+                  type: TextInputType.text,
+                  validate: (String v) {
+                    if (v.length < 2) {
+                      return "please enter a valid name";
+                    }
+                  },
+                ),
+                SizedBox(height: 20),
+
+                //////////////////////////////////////////////////////////////
                 //////////////////////////////////////////////////////// PHONE
                 //////////////////////////////////////////////////////////////
                 RegisterTextField(
