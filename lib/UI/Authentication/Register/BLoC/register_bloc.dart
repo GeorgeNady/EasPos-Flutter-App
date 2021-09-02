@@ -102,12 +102,16 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
          * CREATE USER RECORD ON FIREBASE
          * */
         await fireStore
+            .collection(user.companyName)
+            .doc(user.companyName)
             .collection(Constants.USERS_COLLECTION)
-            .add(user.toJson())
+            .doc(_uid)
+            . set (user.toJson())
             .then((value) =>
                 Fluttertoast.showToast(msg: "User Added Successfully"))
             .catchError((error) =>
                 Fluttertoast.showToast(msg: "Failed to add user: $error"));
+
 
         NamedNavigatorImpl()
             .navigate(Routes.HOME_ROUTE, replace: true, clean: true);

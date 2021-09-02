@@ -1,3 +1,7 @@
+import 'package:easpos/Utiles/Navigator/named-navigator_impl.dart';
+import 'package:easpos/Utiles/Navigator/routes.dart';
+import 'package:easpos/Utiles/shared_helper.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easpos/Utiles/colors.dart';
 
@@ -30,6 +34,14 @@ class SideMenu extends StatelessWidget {
           MenuListTile(title: 'التقارير', icon: 'dashboard'),
           MenuListTile(title: 'الإعدادات', icon: 'settings'),
           MenuListTile(title: 'مركز المساعدة', icon: 'help'),
+          MenuListTile(title: 'تسجيل الخروج', icon: 'help',function: () {
+            FirebaseAuth.instance.signOut().then((value){
+              preference.writeData(CachingKey.COMPANY_ID, "");
+              NamedNavigatorImpl()
+                  .navigate(Routes.LOGIN_ROUTE, replace: true, clean: true);
+            });
+
+          },),
         ],
       ),
     );
@@ -39,7 +51,8 @@ class SideMenu extends StatelessWidget {
 class MenuListTile extends StatelessWidget {
   final title;
   final icon;
-  const MenuListTile({Key key, @required this.title, @required this.icon}) : super(key: key);
+  final Function function;
+  const MenuListTile({Key key, @required this.title, @required this.icon,this.function}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

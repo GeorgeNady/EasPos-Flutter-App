@@ -22,11 +22,12 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), (){
-      preference.readString(CachingKey.AUTH_TOKEN).then((value)  {
-        if (value == 'مستخدم') {
-          NamedNavigatorImpl().navigate(Routes.HOME_ROUTE , clean: true);
-        } else {
+      NamedNavigatorImpl().navigate(Routes.LOGIN_ROUTE , clean: true);
+      preference.readString(CachingKey.USER_ID).then((value)  {
+        if (value.isEmpty) {
           NamedNavigatorImpl().navigate(Routes.LOGIN_ROUTE , clean: true);
+        } else {
+          NamedNavigatorImpl().navigate(Routes.HOME_ROUTE , clean: true);
         }
       });
     });
