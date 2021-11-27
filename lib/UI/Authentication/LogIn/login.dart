@@ -50,6 +50,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   Image.asset('assets/images/the_chef_logo.png', height: 250),
                   SizedBox(height: 35),
                   //////////////////////////////////////////////////////////////
+                  /////////////////////////////////////////////////// STORE CODE
+                  //////////////////////////////////////////////////////////////
+                  RegisterTextField(
+                    icon: Icons.store,
+                    onChange: context.read<LoginBloc>().updateStoreCode,
+                    hint: "Store code",
+                    helperText: "please enter the four-digit store code number",
+                    type: TextInputType.text,
+                    validate: (String v) {
+                      if (v.length != 4) {
+                        return "please enter a valid store code";
+                      }
+                    },
+                  ),
+                  SizedBox(height: 20),
+
+                  //////////////////////////////////////////////////////////////
                   //////////////////////////////////////////////////////// EMAIL
                   //////////////////////////////////////////////////////////////
                   RegisterTextField(

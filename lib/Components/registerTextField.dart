@@ -5,6 +5,7 @@ class RegisterTextField extends StatefulWidget {
   final IconData icon;
   final TextInputType type;
   final String hint;
+  final String helperText;
   final Function onChange;
   final Function validate;
   final int maxLines;
@@ -16,6 +17,7 @@ class RegisterTextField extends StatefulWidget {
     this.icon,
     this.type,
     this.hint,
+    this.helperText,
     this.onChange,
     this.validate,
     this.maxLines,
@@ -43,6 +45,7 @@ class _RegisterTextFieldState extends State<RegisterTextField> {
         decoration: InputDecoration(
           hintText: widget.hint == null ? '' : widget.hint,
           filled: true,
+          helperText: widget.helperText,
           disabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: const BorderRadius.all(Radius.circular(5)),

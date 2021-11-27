@@ -1,4 +1,4 @@
-
+import 'package:easpos/UI/Authentication/CreateStore/BLoC/register_store_bloc.dart';
 import 'package:easpos/UI/Authentication/LogIn/BLoC/login_bloc.dart';
 import 'package:easpos/UI/Authentication/Register/BLoC/register_bloc.dart';
 import 'package:easpos/UI/Authentication/Splash/BLoC/splash_bloc.dart';
@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<RegisterBloc>(
           create: (_) => RegisterBloc(),
         ),
-
+        BlocProvider<RegisterStoreBloc>(
+          create: (_) => RegisterStoreBloc(),
+        ),
       ],
       child: MaterialApp(
         locale: Locale('ar'),

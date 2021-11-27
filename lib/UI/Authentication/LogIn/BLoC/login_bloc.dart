@@ -12,11 +12,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc extends Bloc<AppEvent, AppState> {
+  final _storeCode = BehaviorSubject<String>();
   final _email = BehaviorSubject<String>();
   final _password = BehaviorSubject<String>();
   SharedHelper _helper = SharedHelper();
 
   LoginBloc() : super(Start());
+
+  Function(String) get updateStoreCode => _storeCode.sink.add;
 
   Function(String) get updateEmail => _email.sink.add;
 
@@ -24,6 +27,7 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
 
   @override
   Future<void> close() {
+    _storeCode.close();
     _email.close();
     _password.close();
     return super.close();
@@ -41,7 +45,7 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
         );
         Fluttertoast.showToast(msg: "تم تسجيل الدخول بنجالح");
         final String uid = auth.currentUser.uid;
-        final usersCollection = FirebaseFirestore.instance.collection(Constants.USERS_COLLECTION);
+        final usersCollection = FirebaseFirestore.instance.collection(Constants.USERS_COL_REF);
         final querySnapshot = await usersCollection
             .where('uid',isEqualTo: uid)
             .get();

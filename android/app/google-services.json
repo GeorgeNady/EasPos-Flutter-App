@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "330612661659",
-    "firebase_url": "https://easpos-236cc-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "easpos-236cc",
-    "storage_bucket": "easpos-236cc.appspot.com"
+    "project_number": "641887083803",
+    "project_id": "easpos-721c4",
+    "storage_bucket": "easpos-721c4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:330612661659:android:f6226aa55d6dc50642d53e",
+        "mobilesdk_app_id": "1:641887083803:android:f12492c75761bc8b0587be",
         "android_client_info": {
           "package_name": "com.george.easposresturants.easpos"
         }
       },
       "oauth_client": [
         {
-          "client_id": "330612661659-o3n18ijv8m9qbvdh79aadlofbsie1118.apps.googleusercontent.com",
+          "client_id": "641887083803-ohkpvgml3u3g2jr8o742eqj3qeir736o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.george.easposresturants.easpos",
+            "certificate_hash": "28df092ab504044b2085a0f6871d4d97c28aa9ea"
+          }
+        },
+        {
+          "client_id": "641887083803-sgem7pm1e1scqklph4e1e93gkgvtqgk5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAeP9JXvZvB5-kTr4tYleXTBDKBpq3lvjs"
+          "current_key": "AIzaSyAschWR_1XgRsWARdA5saVK-F1Uf7pLyzA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "330612661659-o3n18ijv8m9qbvdh79aadlofbsie1118.apps.googleusercontent.com",
+              "client_id": "641887083803-sgem7pm1e1scqklph4e1e93gkgvtqgk5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

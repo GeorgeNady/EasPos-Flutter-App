@@ -104,7 +104,7 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
         await fireStore
             .collection(user.companyName)
             .doc(user.companyName)
-            .collection(Constants.USERS_COLLECTION)
+            .collection(Constants.USERS_COL_REF)
             .doc(_uid)
             . set (user.toJson())
             .then((value) =>
