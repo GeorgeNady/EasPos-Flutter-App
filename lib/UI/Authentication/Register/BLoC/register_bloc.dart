@@ -133,7 +133,7 @@ class RegisterBloc extends Bloc<AppEvent, AppState> {
             .then((value) => Fluttertoast.showToast(msg: "User Added Successfully"))
             .catchError((error) => Fluttertoast.showToast(msg: "Failed to add user: $error"));
 
-        NamedNavigatorImpl().push(Routes.HOME_ROUTE,replace: true,clean: true);
+        NamedNavigatorImpl().push(Routes.MAIN_ROUTE,replace: true,clean: true);
 
 
         yield Done();

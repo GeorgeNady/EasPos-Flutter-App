@@ -7,7 +7,7 @@ class Routes {
   static const FORGET_PASS_ROUTE = "FORGET_PASS_ROUTE";
 
   // HOME PAGES
-  static const HOME_ROUTE = "HOME_ROUTE";
+  static const MAIN_ROUTE = "MAIN_ROUTE";
 
 
 }

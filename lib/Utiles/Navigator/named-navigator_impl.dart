@@ -3,7 +3,7 @@ import 'package:easpos/UI/Authentication/ForgetPassword/forget_password.dart';
 import 'package:easpos/UI/Authentication/LogIn/login.dart';
 import 'package:easpos/UI/Authentication/Register/register.dart';
 import 'package:easpos/UI/Authentication/Splash/splash.dart';
-import 'package:easpos/UI/Home/home_screen.dart';
+import 'package:easpos/UI/Main/main_screen.dart';
 import 'package:easpos/Utiles/Navigator/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +21,7 @@ class NamedNavigatorImpl implements NamedNavigator {
       case Routes.LOGIN_ROUTE: return MaterialPageRoute(builder: (_) => LoginScreen(navigator: navigatorState,));
       case Routes.REGISTER_ROUTE: return MaterialPageRoute(builder: (_) => RegisterScreen(navigator: navigatorState,));
       case Routes.FORGET_PASS_ROUTE: return MaterialPageRoute(builder: (_) => ForgetPasswordScreen(navigator: navigatorState,));
-      case Routes.HOME_ROUTE: return MaterialPageRoute(builder: (_) => HomeScreen(navigator: navigatorState,));
+      case Routes.MAIN_ROUTE: return MaterialPageRoute(builder: (_) => MainScreen(navigator: navigatorState,));
       default : return MaterialPageRoute(builder: (_) => SplashScreen(navigator: navigatorState,));
     }
   }

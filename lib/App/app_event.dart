@@ -56,3 +56,6 @@ class AddToLib extends AppEvent {}
 class GoToHomePage extends AppEvent {}
 class GoToProviderPage extends AppEvent {}
 
+class AddIngredient extends AppEvent {}
+class AddCategoryForItem extends AppEvent {}
+

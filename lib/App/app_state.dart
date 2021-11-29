@@ -60,4 +60,7 @@ class AddedToFav extends AppState {}
 
 class RemovedFromFav extends AppState {}
 
+class IngredientAdded extends AppState {}
+class CategoryAddedForItem extends AppState {}
+
 
