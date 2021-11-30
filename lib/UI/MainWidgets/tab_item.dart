@@ -12,16 +12,17 @@ class TabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: function,
-        child: Container(
-          decoration: BoxDecoration(
-            color: MyColors.red,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-          child: Center(
+    return GestureDetector(
+      onTap: function,
+      child: Container(
+        decoration: BoxDecoration(
+          color: MyColors.red,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+        child: Center(
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
             child: Text(
               text,
               style: TextStyle(

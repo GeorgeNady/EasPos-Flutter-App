@@ -1,14 +1,14 @@
 import 'package:easpos/Components/custom_app_bar.dart';
 import 'package:easpos/Components/side_menu.dart';
-// import 'package:easpos/UI/Categories/categories_screen.dart';
-// import 'package:easpos/UI/Customers/customers_screen.dart';
-// import 'package:easpos/UI/Help/help_screen.dart';
+import 'package:easpos/UI/Categories/categories_screen.dart';
+import 'package:easpos/UI/Customers/customers_screen.dart';
+import 'package:easpos/UI/Help/help_screen.dart';
 import 'package:easpos/UI/Home/home_screen.dart';
-// import 'package:easpos/UI/Invoices/invoices_screen.dart';
-// import 'package:easpos/UI/Money/money_screen.dart';
-// import 'package:easpos/UI/Purchases/purchases_screen.dart';
-// import 'package:easpos/UI/Reports/reports_screen.dart';
-// import 'package:easpos/UI/Settings/settings_screen.dart';
+import 'package:easpos/UI/Invoices/invoices_screen.dart';
+import 'package:easpos/UI/Money/money_screen.dart';
+import 'package:easpos/UI/Purchases/purchases_screen.dart';
+import 'package:easpos/UI/Reports/reports_screen.dart';
+import 'package:easpos/UI/Settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -43,14 +43,14 @@ class _MainScreenState extends State<MainScreen> {
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   HomeScreen(),
-                  // CategoriesScreen(),
-                  // CustomersScreen(),
-                  // InvoicesScreen(),
-                  // PurchasesScreen(),
-                  // MoneyScreen(),
-                  // ReportsScreen(),
-                  // SettingsScreen(),
-                  // HelpScreen(),
+                  CategoriesScreen(),
+                  CustomersScreen(),
+                  InvoicesScreen(),
+                  PurchasesScreen(),
+                  MoneyScreen(),
+                  ReportsScreen(),
+                  SettingsScreen(),
+                  HelpScreen(),
                 ],
               ),
             ),

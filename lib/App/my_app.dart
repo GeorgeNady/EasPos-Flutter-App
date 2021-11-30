@@ -1,7 +1,7 @@
 
 import 'package:easpos/UI/Authentication/LogIn/BLoC/login_bloc.dart';
 import 'package:easpos/UI/Authentication/Splash/BLoC/splash_bloc.dart';
-// import 'package:easpos/UI/Categories/BloC/categories_bloc.dart';
+import 'package:easpos/UI/Categories/BloC/categories_bloc.dart';
 import 'package:easpos/Utiles/Navigator/named-navigator_impl.dart';
 import 'package:easpos/Utiles/Navigator/routes.dart';
 import 'package:easpos/Utiles/colors.dart';
@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<LoginBloc>(
           create: (_) => LoginBloc(),
         ),
-        // BlocProvider<CategoriesBloc>(
-        //   create: (_) => CategoriesBloc(),
-        // ),
+        BlocProvider<CategoriesBloc>(
+          create: (_) => CategoriesBloc(),
+        ),
       ],
       child: MaterialApp(
         locale: Locale('ar'),

@@ -40,7 +40,7 @@ class ItemImageColumn extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.asset('assets/images/view.png'),
+                Icon(Icons.image_outlined, color: MyColors.red,),
                 const SizedBox(width: 5,),
                 Text(
                   'استعراض',
