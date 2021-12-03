@@ -21,7 +21,7 @@ class ItemInfoColumn extends StatelessWidget {
             title: Text(
               'بيانات الصنف',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontFamily: 'DIN',
                 color: MyColors.black,
               ),
@@ -102,7 +102,7 @@ class ItemInfoColumn extends StatelessWidget {
                               title: Text(
                                 'إضافة مكونات صنف',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   fontFamily: 'DIN',
                                   color: MyColors.black,
                                 ),

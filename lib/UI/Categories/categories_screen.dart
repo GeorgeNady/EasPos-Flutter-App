@@ -10,6 +10,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return CustomWhiteContainer(
+      margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: screenWidth * 0.02),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -23,7 +24,7 @@ class CategoriesScreen extends StatelessWidget {
           Expanded(
             child: Container(
               margin: const EdgeInsets.only(bottom: 30),
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 border: Border(
                   top: BorderSide(color: MyColors.red, width: 2),

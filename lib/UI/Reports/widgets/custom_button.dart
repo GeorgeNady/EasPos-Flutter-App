@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
         decoration: BoxDecoration(
           color: MyColors.white,
           borderRadius: BorderRadius.circular(8),
@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
           ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               text,

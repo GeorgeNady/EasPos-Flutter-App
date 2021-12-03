@@ -32,7 +32,7 @@ class _ReportsScreenState extends State<ReportsScreen> {
         Expanded(
           flex: 1,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
             child: Row(
               children: [
                 Expanded(

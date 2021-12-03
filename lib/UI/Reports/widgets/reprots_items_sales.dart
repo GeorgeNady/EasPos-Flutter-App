@@ -1,3 +1,4 @@
+import 'package:easpos/UI/MainWidgets/custom_elevated_button.dart';
 import 'package:easpos/UI/MainWidgets/custom_white_container.dart';
 import '../../MainWidgets/title_list_tile.dart';
 import 'package:easpos/Utiles/colors.dart';
@@ -15,6 +16,7 @@ class ReportsItemsSales extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     //final screenHeight = MediaQuery.of(context).size.height;
     return CustomWhiteContainer(
+      margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: screenWidth * 0.02),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -39,27 +41,39 @@ class ReportsItemsSales extends StatelessWidget {
                 ),
                 Spacer(),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.done,
-                    text: 'تعديل',
-                    iconColor: MyColors.red,
-                    onTap: () {},
+                  child: CustomElevatedButton(
+                    icon: Icon(Icons.done, color: MyColors.red, size: 35,),
+                    text: 'تغديل',
+                    textColor: MyColors.black,
+                    function: () {},
+                    border: Border.all(
+                        width: 2,
+                        color: MyColors.grey
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.save_outlined,
+                  child: CustomElevatedButton(
+                    icon: Icon(Icons.save_outlined, color: MyColors.blue, size: 35,),
                     text: 'حفظ',
-                    onTap: () {},
-                    iconColor: MyColors.blue,
+                    textColor: MyColors.black,
+                    function: () {},
+                    border: Border.all(
+                        width: 2,
+                        color: MyColors.grey
+                    ),
                   ),
                 ),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.print_outlined,
-                    iconColor: MyColors.green,
+                  child: CustomElevatedButton(
+                    icon: Icon(Icons.print_outlined, color: MyColors.green, size: 35,),
                     text: 'طباعة',
-                    onTap: () {},
+                    textColor: MyColors.black,
+                    function: () {},
+                    border: Border.all(
+                        width: 2,
+                        color: MyColors.grey
+                    ),
                   ),
                 ),
               ],
@@ -238,7 +252,7 @@ class ReportsItemsSales extends StatelessWidget {
                     child: ListTile(
                       trailing: Icon(
                         Icons.search,
-                        size: 50,
+                        size: 35,
                         color: MyColors.red,
                       ),
                       title: Text(

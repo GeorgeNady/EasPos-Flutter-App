@@ -1,9 +1,9 @@
+import 'package:easpos/UI/MainWidgets/custom_elevated_button.dart';
 import 'package:easpos/UI/MainWidgets/custom_white_container.dart';
 import 'package:easpos/UI/Reports/reports_screen.dart';
 import '../../MainWidgets/title_list_tile.dart';
 import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
-
 import 'custom_button.dart';
 
 class ReportsTab extends StatelessWidget {
@@ -42,6 +42,7 @@ class ReportsTab extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     //final screenHeight = MediaQuery.of(context).size.height;
     return CustomWhiteContainer(
+      margin: EdgeInsets.symmetric(horizontal: screenWidth * 0.04, vertical: screenWidth * 0.02),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -70,27 +71,39 @@ class ReportsTab extends StatelessWidget {
                 ),
                 Spacer(),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.done,
+                  child: CustomElevatedButton(
                     text: 'تعديل',
-                    iconColor: MyColors.red,
-                    onTap: () {},
+                    textColor: MyColors.black,
+                   border: Border.all(
+                     width: 2,
+                     color: MyColors.grey
+                   ),
+                   icon: Icon(Icons.done, color: MyColors.red, size: 35,),
+                    function: () {},
                   ),
                 ),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.save_outlined,
+                  child: CustomElevatedButton(
+                    icon: Icon(Icons.save_outlined, color: MyColors.blue, size: 35,),
                     text: 'حفظ',
-                    onTap: () {},
-                    iconColor: MyColors.blue,
+                    textColor: MyColors.black,
+                    border: Border.all(
+                      width: 2,
+                      color: MyColors.grey
+                  ),
+                    function: () {},
                   ),
                 ),
                 Expanded(
-                  child: CustomButton(
-                    icon: Icons.print_outlined,
-                    iconColor: MyColors.green,
+                  child: CustomElevatedButton(
+                    icon: Icon(Icons.print_outlined, color: MyColors.green, size: 35,),
                     text: 'طباعة',
-                    onTap: () {},
+                    textColor: MyColors.black,
+                    border: Border.all(
+                        width: 2,
+                        color: MyColors.grey
+                    ),
+                    function: () {},
                   ),
                 ),
               ],
@@ -123,6 +136,7 @@ class ReportsTab extends StatelessWidget {
                             ),
                           ],
 
+
                           decoration: InputDecoration(
                             enabledBorder: outlineBorder,
                             focusedBorder: outlineBorder,
@@ -132,7 +146,7 @@ class ReportsTab extends StatelessWidget {
                           // borderRadius: BorderRad,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Expanded(
@@ -150,7 +164,7 @@ class ReportsTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Expanded(
@@ -168,7 +182,7 @@ class ReportsTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Expanded(
@@ -207,7 +221,7 @@ class ReportsTab extends StatelessWidget {
                     child: ListTile(
                       trailing: Icon(
                         Icons.search,
-                        size: 50,
+                        size: 35,
                         color: MyColors.red,
                       ),
                       title: _titleText(),

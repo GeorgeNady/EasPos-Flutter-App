@@ -19,7 +19,7 @@ class TabItem extends StatelessWidget {
           color: MyColors.red,
           borderRadius: BorderRadius.circular(8),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+        padding: const EdgeInsets.all(8),
         child: Center(
           child: FittedBox(
             fit: BoxFit.fitWidth,

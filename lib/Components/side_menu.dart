@@ -68,7 +68,7 @@ class _SideMenuState extends State<SideMenu> {
                     onTap: () {
                       setState(() {
                         selectedIndex = index;
-                        widget.pageController.jumpToPage(index);
+                        widget.pageController.animateToPage(selectedIndex, duration: Duration(milliseconds: 500), curve: Curves.linear);
                       });
                     },
                   ),

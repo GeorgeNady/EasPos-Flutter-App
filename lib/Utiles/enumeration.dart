@@ -7,3 +7,8 @@ abstract class Enum<T> {
 
   T get value => _value;
 }
+
+enum CustomButtonDirection {
+  Vertical,
+  Horizontal,
+}

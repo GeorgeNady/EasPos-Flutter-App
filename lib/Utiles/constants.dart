@@ -1,3 +1,6 @@
+import 'package:easpos/Utiles/colors.dart';
+import 'package:flutter/material.dart' show TextStyle;
+
 class Constants {
   static const String USERS_COLLECTION = "users";
   static const String REQUESTS_COLLECTION = "requests";

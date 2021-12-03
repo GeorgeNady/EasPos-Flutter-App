@@ -1,14 +1,21 @@
 import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+
   @override
   Size get preferredSize => Size.fromHeight(56.0);
+}
+
+class _CustomAppBarState extends State<CustomAppBar> {
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: MyColors.white,
+      title: Container(),
       actions: [
         Row(
           children: [
