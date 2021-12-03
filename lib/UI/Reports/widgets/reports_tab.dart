@@ -4,7 +4,6 @@ import 'package:easpos/UI/Reports/reports_screen.dart';
 import '../../MainWidgets/title_list_tile.dart';
 import 'package:easpos/Utiles/colors.dart';
 import 'package:flutter/material.dart';
-import 'custom_button.dart';
 
 class ReportsTab extends StatelessWidget {
   final currentTab;
